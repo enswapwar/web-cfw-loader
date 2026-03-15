@@ -35,8 +35,8 @@
 
 <body class="container-fluid" id="pageBody">
   <div class="row" id="title">
-    <h1 id="pageTitle">Nintendo Switch Payload Loader</h1>
-    <h4 id="pageSubtitle">Fusee Launcher ported to JavaScript using WebUSB.</h4>
+    <h1 id="pageTitle">Nintendo Switch ペイロード ローダー</h1>
+    <h4 id="pageSubtitle">Fusee LauncherをWebUSBを使用し、Javascriptに移植しました</h4>
   </div>
 
   <div class="row margin-top-md">
@@ -62,54 +62,54 @@
     <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
 
       <div class="alert alert-danger" role="alert">
-        <p id="dangerDanger">This is moderately tested. Although no issues have been discovered, we're not responsible if anything goes wrong! I did not make any of this, and I am just rehosting it for others to use.</p>
+        <p id="dangerDanger">これはある程度テストはされております。不具合やバグなどは発見されておりませんが、もし不具合が発生したとしても責任は負いかねます。ちなみにみかんはこの仕組みを作っていません。ただフォークをして日本語に改変しているだけなのでご了承ください。</p>
       </div>
 
       <div class="alert alert-warning alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <p id="warningWindows">This may or may not work on Windows due to a limitation in the Chrome implementation of WebUSB (and probably other reasons!). In our testing, it will sometimes work so give it a shot, but be wary.</p>
+        <p id="warningWindows">chromeの設定、OS側の制限などでwebUSBが機能しない場合があります。ただし、時々動作することもありますが、windowsとかのPCでは普通にexeのソフトでしたほうが早いです。</p>
       </div>
 
       <div class="alert alert-warning alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <p id="warningBrowser">This does ONLY work on chromium-based browsers (Brave, Chrome, etc.), as they are the only ones with a working WebUSB implementation.</p>
+        <p id="warningBrowser">WebUSBが正常に動作するブラウザでないとこのサイトは動かないため、chromeやmicrosoft edge(chromium版)などのchromiumベースのブラウザの使用をおすすめします。</p>
       </div>
 
       <div class="alert alert-warning alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <p id="warningLinux">On Linux, you might get an 'Access Denied' or 'No Compatible Device' error on the Connect dialog! If you do, you can try creating a file at <code>/etc/udev/rules.d/50-switch.rules</code>With the following contents:<br><code>SUBSYSTEM=="usb", ATTR{idVendor}=="0955", MODE="0664", GROUP="plugdev"</code> and afterwards add yourself to the plugdev group by typing <code>sudo usermod -a -G plugdev YOUR_NAME</code></p>
+        <p id="warningLinux">Linuxの場合、アクセス拒否されたり、互換性のあるデバイスが見つからないなどのエラーが発生することがあります、その場合この内容のファイルを作成し<code>/etc/udev/rules.d/50-switch.rules</code>このような内容で:<br><code>SUBSYSTEM=="usb", ATTR{idVendor}=="0955", MODE="0664", GROUP="plugdev"</code>その後次のコードを入力してplugdevグループに自分を追加してみてください。<code>sudo usermod -a -G plugdev YOUR_NAME</code></p>
       </div>
 
       <div class="alert alert-warning alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <p id="warningTested">This has been tested and appears to work on Linux, OSX, Android (unrooted) and Chromebooks. Your mileage may vary.</p>
+        <p id="warningTested">このサイトはテスト済みです。Linux,OSX,android(非root化),chromebookでも動作ができるみたいです。ただし環境によってできない可能性もあります。ちなみにみかんは学校のchromebookでもペイロードが送ることに成功したので、おそらく大体行けると思います。</p>
       </div>
 
       <div class="alert alert-info" role="alert">
         <p><strong id="labelInstructions">Instructions:</strong></p>
         <ul>
-          <li id="liRCM">Put the Switch in RCM, and connect it to your device.</li>
-          <li id="liSelect">Select either the example payload, or upload one.</li>
-          <li id="liPress">Press 'Deliver Payload!'</li>
-          <li id="liAPX">On the consent screen that appears, select 'APX' and hit 'Connect'.</li>
-          <li id="liLaunch">If all goes well, the payload will launch!</li>
+          <li id="liRCM">まず未対策機のswitchを用意し、RCMモードに入ってください</li>
+          <li id="liSelect">用意されているペイロードか、自分で用意したペイロードをうｐしてください。</li>
+          <li id="liPress">そうしたら「ペイロードを送信する！」ボタンを押してください'</li>
+          <li id="liAPX">左に欄が出てくるのでAPXというものを選んで送信してください</li>
+          <li id="liLaunch">そうすればペイロードが送信されるはずです。switchの画面を見てみましょう！</li>
         </ul>
       </div>
 
       <div class="alert alert-info" role="alert">
-        <p>Switch Hacking Guide: <strong><a href="https://switch.hacks.guide/">CLICK HERE</a></strong></p>
+        <p>Switch Hacking Guide: <strong><a href="https://switch.hacks.guide/">ここをクリック</a></strong></p>
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <h1 id="h1SetupDelivery">Setup Payload Delivery</h1>
+        <h1 id="h1SetupDelivery">ペイロード送信の設定</h1>
 
         <form id="mainForm">
           <div class="row">
             <div class="col-xs-6">
-              <h4 id="h4SelectPayload">Select Payload:</h4>
+              <h4 id="h4SelectPayload">ペイロードを選んでね！</h4>
             </div>
 
             <div class="col-xs-6">
@@ -127,7 +127,7 @@
 
           <div class="row margin-top-md">
             <div class="col-xs-10">
-              <h4 id="h4GetByteArray">Get payload byte array (don't sploit)</h4>
+              <h4 id="h4GetByteArray">ペイロードのバイト列をログに出力する(悪用しないこと)</h4>
             </div>
             <div class="col-xs-2">
               <input class="pull-right" type="checkbox" name="shouldDebug" id="shouldDebug">
@@ -138,7 +138,7 @@
 
         <div class="row margin-top-md">
           <div class="col-xs-6 col-xs-offset-6 col-md-4 col-md-offset-8">
-            <button class="btn btn-primary btn-lg btn-block" id="goButton">Deliver Payload!</button>
+            <button class="btn btn-primary btn-lg btn-block" id="goButton">ペイロードを送信する！</button>
           </div>
         </div>
 
@@ -148,9 +148,9 @@
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <h3 id="h3Log">Log:</h3>
+        <h3 id="h3Log">ログ:</h3>
         <div id="output"></div>
-        <button class="btn btn-primary pull-right margin-top-md" id="clearlogsbutton" onclick="clearLog();">Clear Logs</button><br><br>
+        <button class="btn btn-primary pull-right margin-top-md" id="clearlogsbutton" onclick="clearLog();">ログをクリアする</button><br><br>
     </div>
   </div>
 
@@ -160,7 +160,7 @@
 <div class="row margin-top-md" id="page-footer">
   <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
       <div id="disclaimer">
-          <p id="disclaimer1">Source can be found on <a href="https://github.com/eip618/web-cfw-loader" target="_blank">GitHub</a> (or by hitting view source, there is no backend!).</p>
+          <p id="disclaimer1">ソースはgithubで確認できます<a href="https://github.com/eip618/web-cfw-loader" target="_blank">GitHub</a>ちなみにみかんがフォークしたリポジトリではないのでご注意を</p>
           <p id="disclaimer2"><a href="https://github.com/AtlasNX" target="_blank">AtlasNX</a> 2020 - <a href="https://github.com/lordfriky" target="_blank">Lord Friky</a> 2024</p>
         </div>
   </div>
